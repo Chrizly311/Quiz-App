@@ -9,11 +9,11 @@ let questions = [
     },
     {
         "question": "Welche Tauchausrüstung ermöglicht es Tauchern, unter Wasser zu atmen, indem sie die Atemluft aus der Druckluftflasche atmen?",
-        "answer_1": "Atemregler",
-        "answer_2": "Tarierweste",
+        "answer_1": "Tarierweste",
+        "answer_2": "Atemregler",
         "answer_3": "Tauchcomputer",
         "answer_4": "Schnorchel",
-        "right_answer": 1
+        "right_answer": 2
     },
     {
         "question": "Welcher Begriff beschreibt das plötzliche Auftauchen eines Tauchers aus großer Tiefe, das zu gesundheitlichen Problemen führen kann?",
@@ -104,7 +104,7 @@ function showQuestion() {
 }
 
 
-//Prüft, ob Antwort richtig oder falsch ist.
+//Prüft, ob Antwort richtig oder falsch ist und gibt "nächste Frage"-Button frei.
 function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
@@ -116,4 +116,11 @@ function answer(selection) {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
+    document.getElementById('next-button').disabled = false;
+}
+
+
+function nextQuestion() {
+    currentQuestion++; // erhöht Wert von z.b. 0 auf 1 und blendet somit die nächste Frage ein.
+    showQuestion();
 }
