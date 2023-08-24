@@ -16,7 +16,7 @@ let questions = [
         "right_answer": 2
     },
     {
-        "question": "Welcher Begriff beschreibt das plötzliche Auftauchen eines Tauchers aus großer Tiefe, das zu gesundheitlichen Problemen führen kann?",
+        "question": "Welcher Begriff beschreibt das gesundheitliche Problem, dass beim plötzlichen Auftauchen eines Tauchers aus großer Tiefe, auftreten kann?",
         "answer_1": "Dekompressionskrankheit",
         "answer_2": "Taucherohren",
         "answer_3": "Seekrankheit",
@@ -122,5 +122,18 @@ function answer(selection) {
 
 function nextQuestion() {
     currentQuestion++; // erhöht Wert von z.b. 0 auf 1 und blendet somit die nächste Frage ein.
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButton();
     showQuestion();
+}
+
+function resetAnswerButton() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }
