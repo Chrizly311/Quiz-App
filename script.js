@@ -99,6 +99,7 @@ function showQuestion() {
         //show Endscreen
         document.getElementById('endscreen').style = '';
         document.getElementById('question-body').style = 'display: none';
+        document.getElementById('amount-questions').innerHTML = questions.length;
     } else {
     let question = questions[currentQuestion];
     
@@ -135,6 +136,7 @@ function nextQuestion() {
     showQuestion();
 }
 
+//Entfernt farbliche Markierung von den Antwortfeldern
 function resetAnswerButton() {
     document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_1').parentNode.classList.remove('bg-success');
