@@ -32,7 +32,7 @@ let questions = [
         "right_answer": 4
     },
     {
-        "question": "Welche der folgenden Meerestiere steht oft im Ruf, für Taucher gefährlich zu sein, obwohl Angriffe auf Menschen äußerst selten sind und sie normalerweise scheu sind?",
+        "question": "Welche der folgenden Meerestiere steht oft im Ruf, für Taucher gefährlich zu sein, obwohl Angriffe auf Menschen äußerst selten sind?",
         "answer_1": "Delfine",
         "answer_2": "Clownfische",
         "answer_3": "Quallen",
@@ -41,10 +41,10 @@ let questions = [
     },
     {
         "question": "Was ist die empfohlene maximale Tauchtiefe für einen Open-Water-Taucher gemäß den meisten Tauchorganisationen?",
-        "answer_1": "20 Meter",
+        "answer_1": "18 Meter",
         "answer_2": "30 Meter",
-        "answer_3": "40 Meter",
-        "answer_4": "50 Meter",
+        "answer_3": "42 Meter",
+        "answer_4": "60 Meter",
         "right_answer": 1
     },
     {
@@ -87,13 +87,17 @@ let currentQuestion = 0;
 
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
-
     showQuestion();
+    currentQuestionNumber()
 }
 
 
 //Zeigt die aktuelle Frage + Antworten an.
 function showQuestion() {
+
+    if(currentQuestion >= questions.length){
+        //show Endscreen
+    } else {
     let question = questions[currentQuestion];
     
     document.getElementById('questiontext').innerHTML = question['question'];
@@ -101,6 +105,7 @@ function showQuestion() {
     document.getElementById('answer_2').innerHTML = question['answer_2'];
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 
@@ -123,6 +128,7 @@ function answer(selection) {
 function nextQuestion() {
     currentQuestion++; // erhöht Wert von z.b. 0 auf 1 und blendet somit die nächste Frage ein.
     document.getElementById('next-button').disabled = true;
+    currentQuestionNumber();
     resetAnswerButton();
     showQuestion();
 }
@@ -136,4 +142,8 @@ function resetAnswerButton() {
     document.getElementById('answer_3').parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+}
+
+function currentQuestionNumber() {
+    document.getElementById('current-number').innerHTML = currentQuestion +1;
 }
