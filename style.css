@@ -43,3 +43,8 @@ body {
 .text-center {
     text-align: center;
 }
+
+.end-text {
+    font-size: 38px;
+    padding-bottom: 12px;
+}
