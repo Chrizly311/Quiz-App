@@ -105,8 +105,15 @@ function showQuestion() {
 
         document.getElementById('amount-questions').innerHTML = questions.length;
         document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-    } else {
+    } else { //show next question
     let question = questions[currentQuestion];
+
+
+    //calculating progress (for progress bar)
+    let percent = (currentQuestion +1) / questions.length;
+    percent = percent * 100;
+    document.getElementById('progress-bar').innerHTML = `${percent}%`;
+    document.getElementById('progress-bar').style= `width: ${percent}%;`;
     
     document.getElementById('questiontext').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
