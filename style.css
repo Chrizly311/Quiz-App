@@ -54,3 +54,26 @@ body {
     justify-content: center;
     margin-top: 16px;
 }
+
+
+/*  ------------ responsive design -------------*/
+
+@media (max-width: 600px) {
+
+    .d-none {
+        display: none;
+    }
+
+    .responsive {
+        padding: 0 !important;
+    }
+
+    .card-img-top {
+        height: 250px;
+    }
+
+    .responsive-text {
+        font-size: 16px;
+    }
+
+}
