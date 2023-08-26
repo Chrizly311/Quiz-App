@@ -48,3 +48,9 @@ body {
     font-size: 38px;
     padding-bottom: 12px;
 }
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}

@@ -149,6 +149,7 @@ function nextQuestion() {
     showQuestion();
 }
 
+
 //Entfernt farbliche Markierung von den Antwortfeldern
 function resetAnswerButton() {
     document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
@@ -161,6 +162,19 @@ function resetAnswerButton() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }
 
+
 function currentQuestionNumber() {
     document.getElementById('current-number').innerHTML = currentQuestion +1;
+}
+
+
+//Spiel neustarten
+function restartGame() {
+    rightQuestions = 0;
+    currentQuestion = 0;
+    init();
+
+    document.getElementById('quiz-img').style = '';
+    document.getElementById('question-body').style = '';
+    document.getElementById('endscreen').style = 'display: none;';
 }
