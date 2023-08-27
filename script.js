@@ -84,7 +84,7 @@ let questions = [
 
 let currentQuestion = 0;
 let rightQuestions = 0;
-
+let answerCheck = false;
 let audio_succes = new Audio('sounds/correct.wav');
 let audio_fail = new Audio('sounds/wrong.wav');
 
@@ -145,6 +145,8 @@ function showProgressBar() {
 
 //Prüft, ob Antwort richtig oder falsch ist und gibt "nächste Frage"-Button frei.
 function answer(selection) {
+    if (!answerCheck) {
+        answerCheck = true;
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`;
@@ -159,8 +161,21 @@ function answer(selection) {
         audio_fail.play();
     }
     document.getElementById('next-button').disabled = false;
+    }
 }
 
+
+function disableAnswers() {
+    let btn1 =  document.getElementById('validCheck1');
+    let btn2 =  document.getElementById('validCheck2');
+    let btn3 =  document.getElementById('validCheck3');
+    let btn4 =  document.getElementById('validCheck4');
+
+    btn1.disabled = true;
+    btn2.disabled = true;
+    btn3.disabled = true;
+    btn4.disabled = true;
+}
 
 function nextQuestion() {
     currentQuestion++; // erhöht Wert von z.b. 0 auf 1 und blendet somit die nächste Frage ein.
@@ -168,6 +183,7 @@ function nextQuestion() {
     currentQuestionNumber();
     resetAnswerButton();
     showQuestion();
+    answerCheck = false;
 }
 
 
@@ -199,3 +215,4 @@ function restartGame() {
     document.getElementById('question-body').style = '';
     document.getElementById('endscreen').style = 'display: none;';
 }
+
